@@ -58,6 +58,7 @@ fork = lambda *funcs: lambda *args: map(
 split = lambda *funcs: lambda *args: [
     a if funcs[i] is None else funcs[i](a) for i, a in enumerate(args)
 ]
+split_args = lambda *funcs: spread(split(*funcs))
 join = lambda func: lambda *args: func(*args)
 getitem = lambda key: lambda obj: get_item(obj, key)
 rev_arg = lambda func: lambda *args: func(*args[1:], args[0])
